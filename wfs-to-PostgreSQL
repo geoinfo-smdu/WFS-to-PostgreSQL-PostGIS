@@ -1,0 +1,11 @@
+#Extraindo o WFS e Exportando para GeoPackage
+"C:\Program Files\QGIS 3.22.4\bin\ogr2ogr" -f "GPKG" D:/arquivo_de_saida.gpkg WFS:http://endereco/servidor geoportal:nome_da_camada
+
+#Carregando o GPKG para o PostgreSQL/PostGIS
+"C:\Program Files\QGIS 3.22.4\bin\ogr2ogr" -f "PostgreSQL" PG:"host=XX.XX.XX.XX port=5432 user=usuario password=XXXX dbname=nome_do_banco" D:\arquivo_de_saida.gpkg
+
+##Exemplo de endereço da Camada de Distritos Municipais de São Paulo no GeoSampa
+"C:\Program Files\QGIS 3.22.4\bin\ogr2ogr" -f "GPKG" D:/distrito_municipal.gpkg WFS:http://wfs.geosampa.prefeitura.sp.gov.br/geoserver/geoportal/wfs geoportal:distrito_municipal
+
+##Exemplo PostgreSQL
+"C:\Program Files\QGIS 3.22.4\bin\ogr2ogr" -f "PostgreSQL" PG:"host=10.75.XX.XXX port=5432 user=postgres password=XXX dbname=db_geoinfo" D:\distrito_municipal.gpkg
